@@ -1,0 +1,44 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.1.20'
+    id 'application'
+}
+
+group = 'fr.kewan'
+version = '1.4'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation("com.microsoft.playwright:playwright:1.45.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("javax.mail:javax.mail-api:1.6.2")
+    implementation("com.sun.mail:javax.mail:1.6.2")
+}
+
+application {
+    mainClass.set("fr.kewan.MainKt") // Remplacez par le chemin de votre fonction `main`
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "fr.kewan.MainKt" // Remplacez par le chemin de votre fonction `main`
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from({
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    })
+}
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(20))
+    }
+}
