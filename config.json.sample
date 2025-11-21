@@ -1,0 +1,11 @@
+{
+    "LOGIN_URL": "",
+    "USERNAME": "",
+    "PASSWORD": "",
+    "DATA_URL": "",
+    "SEMESTER_KEYS": null,
+    "GMAIL_CODE": "",
+    "WEBHOOK_URL_1": "",
+    "WEBHOOK_URL_2": "",
+    "WEBHOOK_URL_3": ""
+}
