@@ -15,7 +15,7 @@ fun main() {
     val task = Runnable {
         try {
             // Appeler votre fonction principale
-            releve.fetchData("1087")
+            releve.fetchData(Config.SEMESTER_KEYS!![0])
         } catch (e: Exception) {
             println("Erreur lors de l'exécution de la tâche : ${e.message}")
         }
