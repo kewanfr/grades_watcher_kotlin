@@ -70,7 +70,7 @@ class Releve(phpSessionIdClass: PHPSessionId) {
         } else {
             println("No previous data found in $filePath, fetching new data.")
         }
-        fetchData(Config.SEMESTER_KEYS?.get(1) ?: "1087")
+        //fetchData(Config.SEMESTER_KEYS?.get(0) ?: "1156")
     }
 
     private fun saveData(newData: ReleveData) {
