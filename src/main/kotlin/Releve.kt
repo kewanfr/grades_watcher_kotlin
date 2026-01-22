@@ -117,7 +117,12 @@ class Releve(phpSessionIdClass: PHPSessionId) {
                     val userEmbed = CompareReleve.discordEmbedNoteDiffUser(it)
                     val globalEmbed = CompareReleve.discordEmbedNoteDiffPromo(it)
                     discord.sendWebhook(Config.WEBHOOK_URL_2 ?: "", userEmbed)
-                    discord.sendWebhook(Config.WEBHOOK_URL_3 ?: "", globalEmbed)
+                    discord.sendWebhook(
+                        Config.WEBHOOK_URL_3 ?: "",
+                        globalEmbed,
+                        "<@&1447522923836346408&> Nouvelle note pour la promotion 2A !"
+                    )
+
                 }
                 println("=======================================")
             }

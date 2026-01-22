@@ -6,7 +6,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class Discord {
-    fun sendWebhook(url: String, embeds: String) {
+    fun sendWebhook(url: String, embeds: String, content: String? = null) {
         try {
             val connection = URL(url).openConnection() as HttpURLConnection
             connection.requestMethod = "POST"
@@ -18,7 +18,8 @@ class Discord {
                     "username": "Notes IUT",
                     "avatar_url": "https://media.discordapp.net/attachments/1356808321855787149/1356808401195241743/WRLUWNE8v0HpPBC3lTeZRcnRtyK_AO7YJ9BHNKESrr2VghLmjxPW8MnrRqUfmP780PyG0UMM5CMs900-c-k-c0x00ffffff-no-rj.png?ex=67ede9cb&is=67ec984b&hm=01f3ae23d5ef042065e086759c6e7a97e4f1de4f47874cee9a46cec90f47d637&=&format=webp&quality=lossless",
                     
-                    "embeds": [$embeds]
+                    "embeds": [$embeds],
+                    "content": ${if (content != null) "\"$content\"" else "null"}
                 }
             """.trimIndent()
 
